@@ -5,6 +5,7 @@ set(SOURCES
         src/Logger.cpp
         src/Server.cpp
         src/main.cpp
+        test/unit_test.cpp
         )
 
 add_definitions("-std=c++11")
@@ -19,3 +20,19 @@ target_include_directories(${PROJECT_NAME}
         PRIVATE
         ${PROJECT_SOURCE_DIR}/include
         )
+
+
+add_executable(unit_tests
+        test/unit_test.cpp
+        )
+find_package(GTest REQUIRED)
+
+# enable CTest testing
+target_link_libraries(unit_tests
+        GTest::GTest
+        GTest::Main
+        )
+
+enable_testing()
+
+add_test(test_all unit_tests)

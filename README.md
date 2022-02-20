@@ -11,6 +11,10 @@ Install all dependencies and rebuild.
 or 
 > make 
 
+run test
+
+> ctest
+
 ## demo description
 
 Provide md5 calculation  via http.
@@ -20,12 +24,12 @@ Provide md5 calculation  via http.
 - Cmake
 - Gcc
 - conan
-- Jenkins file 
-- Docker file 
-- Sonar Qube 
 - Google Test
 - gcov 
 - Icov 
+- Jenkins file
+- Docker file
+- Sonar Qube
 
 ## reference 
 
