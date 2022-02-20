@@ -19,16 +19,16 @@ run test
 
 Provide md5 calculation  via http.
 
-## feature 
+## feature
 
 - Cmake
 - Gcc
 - conan
-- Google Test
-- gcov 
-- Icov 
-- Jenkins file
+- Google Test <<<<<<
+- gcov
+- CppLint
 - Docker file
+- Jenkins file
 - Sonar Qube
 
 ## reference 
@@ -55,8 +55,3 @@ Provide md5 calculation  via http.
 7. https://github.com/google/styleguide
 8. https://cmake.org/cmake/help/latest/guide/tutorial/index.html
 9. https://blog.csdn.net/u013187057/article/details/85222007
-
-
-## problem yet 
-
-1. command ctest not working
