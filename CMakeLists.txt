@@ -47,3 +47,5 @@ target_link_libraries(unit_tests
         )
 
 add_test(NAME ${PROJECT_NAME}_test COMMAND unit_tests)
+
+add_subdirectory(features)

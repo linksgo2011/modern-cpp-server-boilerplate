@@ -46,12 +46,14 @@ Provide md5 calculation  via http.
 
 **reading list**
 
-1. https://seisman.github.io/how-to-write-makefile/
-2. E-Book about Cmake https://cliutils.gitlab.io/modern-cmake
-3. https://docs.conan.io/en/latest/getting_started.html
-4. https://conan.io/center 
-5. https://cmake.org/
-6. https://github.com/google/googletest
-7. https://github.com/google/styleguide
-8. https://cmake.org/cmake/help/latest/guide/tutorial/index.html
-9. https://blog.csdn.net/u013187057/article/details/85222007
+1. https://www.runoob.com/cplusplus/cpp-environment-setup.html
+2. Moder CPP basic https://github.com/hisamuka/a-tour-of-cpp
+3. https://seisman.github.io/how-to-write-makefile/
+4. E-Book about Cmake https://cliutils.gitlab.io/modern-cmake
+5. https://docs.conan.io/en/latest/getting_started.html
+6. https://conan.io/center 
+7. https://cmake.org/
+8. https://github.com/google/googletest
+9. https://github.com/google/styleguide
+10. https://cmake.org/cmake/help/latest/guide/tutorial/index.html
+11. https://blog.csdn.net/u013187057/article/details/85222007
