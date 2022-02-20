@@ -1,7 +1,7 @@
 #include <iostream>
 #include "httplib.h"
 #include <Server.h>
-#include <Logger.h>
+#include "Logger.h"
 
 int main(int argc, char **argv) {
     Server server;

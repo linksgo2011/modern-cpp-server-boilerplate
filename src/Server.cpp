@@ -3,7 +3,7 @@
 #include "Logger.h"
 #include "lib/Reverse.h"
 
-void Server::start(){
+void Server::start() {
     httplib::Server svr;
     Logger logger;
     Reverse reverse;
@@ -11,8 +11,7 @@ void Server::start(){
     svr.Get("/hi", [&](const httplib::Request &, httplib::Response &res) {
         logger.print("handle request");
         std::string string = "hell world\n";
-        reverse.reverse(string);
-        res.set_content(string, "text/plain");
+        res.set_content(reverse.reverse(string), "text/plain");
     });
 
     svr.listen("0.0.0.0", 8080);

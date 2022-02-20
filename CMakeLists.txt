@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 2.8.12)
 project(modernCpp)
 
 set(SOURCES
-        src/Logger.cpp
+        src/lib/Logger.cpp
         src/Server.cpp
         src/main.cpp
         )
