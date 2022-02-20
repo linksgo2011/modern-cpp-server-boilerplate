@@ -1,13 +1,16 @@
-#include "Poco/MD5Engine.h"
-#include "Poco/DigestStream.h"
+#define CPPHTTPLIB_OPENSSL_SUPPORT
 
+#include "httplib/httplib.h"
 #include <iostream>
 
-int main(int argc, char** argv){
-    Poco::MD5Engine md5;
-    Poco::DigestOutputStream ds(md5);
-    ds << "abcdefghijklmnopqrstuvwxyz";
-    ds.close();
-    std::cout << Poco::DigestEngine::digestToHex(md5.digest()) << std::endl;
+int main(int argc, char **argv) {
+    httplib::Server svr;
+
+    svr.Get("/hi", [](const httplib::Request &, httplib::Response &res) {
+        res.set_content("hell world\n", "text/plain");
+    });
+
+
+    svr.listen("0.0.0.0", 8080);
     return 0;
 }

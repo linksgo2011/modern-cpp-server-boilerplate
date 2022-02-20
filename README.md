@@ -3,6 +3,8 @@ Modern C++ boilerplate project for server side.
 
 # how to run 
 
+Install all dependencies and rebuild.
+
 > cmake -H. -Bbuild
 > cmake --build build
 
