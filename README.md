@@ -55,3 +55,8 @@ Provide md5 calculation  via http.
 7. https://github.com/google/styleguide
 8. https://cmake.org/cmake/help/latest/guide/tutorial/index.html
 9. https://blog.csdn.net/u013187057/article/details/85222007
+
+
+## problem yet 
+
+1. command ctest not working

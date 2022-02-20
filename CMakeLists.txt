@@ -21,18 +21,18 @@ target_include_directories(${PROJECT_NAME}
         ${PROJECT_SOURCE_DIR}/include
         )
 
+# enable CTest testing
+include(CTest)
+enable_testing()
 
 add_executable(unit_tests
         test/unit_test.cpp
         )
 find_package(GTest REQUIRED)
 
-# enable CTest testing
 target_link_libraries(unit_tests
         GTest::GTest
         GTest::Main
         )
-
-enable_testing()
 
 add_test(test_all unit_tests)
