@@ -5,8 +5,11 @@ Modern C++ boilerplate project for server side.
 
 Install all dependencies and rebuild.
 
-> cmake -H. -Bbuild
+> conan install .. --settings compiler="clang" --settings compiler.version=11 --build=missing
+
 > cmake --build build
+or 
+> make 
 
 ## demo description
 
@@ -42,6 +45,7 @@ Provide md5 calculation  via http.
 1. https://seisman.github.io/how-to-write-makefile/
 2. E-Book about Cmake https://cliutils.gitlab.io/modern-cmake
 3. https://docs.conan.io/en/latest/getting_started.html
+4. https://conan.io/center 
 5. https://cmake.org/
 6. https://github.com/google/googletest
 7. https://github.com/google/styleguide

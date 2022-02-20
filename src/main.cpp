@@ -1,16 +1,13 @@
-#define CPPHTTPLIB_OPENSSL_SUPPORT
-
-#include "httplib/httplib.h"
 #include <iostream>
+#include "httplib.h"
+#include <Server.h>
+#include <Logger.h>
 
 int main(int argc, char **argv) {
-    httplib::Server svr;
+    Server server;
+    Logger logger;
 
-    svr.Get("/hi", [](const httplib::Request &, httplib::Response &res) {
-        res.set_content("hell world\n", "text/plain");
-    });
-
-
-    svr.listen("0.0.0.0", 8080);
+    logger.print("start....");
+    server.start();
     return 0;
 }
