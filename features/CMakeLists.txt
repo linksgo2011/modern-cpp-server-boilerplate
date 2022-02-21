@@ -10,6 +10,10 @@ add_executable(exercise_variable_scope 04-variable-scope/main.cpp)
 add_executable(exercise_const 05-const/main.cpp)
 add_executable(exercise_modifier-type 06-modifier-types/main.cpp)
 add_executable(exercise_storage-classes 07-storage-classes/main.cpp)
+add_executable(exercise_operations 08-operators/main.cpp)
+add_executable(exercise_loops 09-loops/main.cpp)
+add_executable(exercise_decision 10-decision/main.cpp)
+add_executable(exercise_functions 11-functions/main.cpp)
 
 # enable CTest testing
 enable_testing()
