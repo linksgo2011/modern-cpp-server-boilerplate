@@ -14,6 +14,10 @@ add_executable(exercise_operations 08-operators/main.cpp)
 add_executable(exercise_loops 09-loops/main.cpp)
 add_executable(exercise_decision 10-decision/main.cpp)
 add_executable(exercise_functions 11-functions/main.cpp)
+add_executable(exercise_math 12-math/main.cpp)
+add_executable(exercise_arrays 13-arrays/main.cpp)
+add_executable(exercise_strings 14-strings/main.cpp)
+add_executable(exercise_pointer 15-pointer/main.cpp)
 
 # enable CTest testing
 enable_testing()
