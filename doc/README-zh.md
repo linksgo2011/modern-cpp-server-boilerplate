@@ -74,3 +74,32 @@ Sonar 上提供了一些商业插件比如 SonarCFamily 可以使用，也可以
 
 ![image-20220224115434701](/Users/nlin/www/modern-cpp-server-boilerplate/doc/README-zh/image-20220224115434701.png)
 
+### 4. 静态扫描
+
+
+
+##### 本地使用 sonar-scanner 上报报告：
+
+> Brew install sonar-scanner
+
+
+
+
+
+##### cppcheck 
+
+最简单的检查器。
+
+安装地址：https://cppcheck.sourceforge.io/
+
+
+
+
+
+## 5. 构建运行节点方案
+
+由于每个项目不同，需要不同的构建方案。
+
+1. Linux 可以使用配置不同的 docker 来进行构建
+2. Win 使用 Windows 节点即可
+

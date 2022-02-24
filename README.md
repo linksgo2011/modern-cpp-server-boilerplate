@@ -35,7 +35,7 @@ Provide md5 calculation  via http.
 
 **template project**
 
-1. https://github.com/imefisto/cpp-server-boilerplat
+1. https://github.com/imefisto/cpp-server-boilerplate
 2. https://github.com/bsamseth/cpp-project
 
 **real project**
