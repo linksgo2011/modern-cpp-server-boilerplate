@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                git 'https://github.com/jglick/simple-maven-project-with-tests.git'
+                git 'https://github.com/linksgo2011/modern-cpp-server-boilerplate'
 
                 sh "./build.sh"
             }
