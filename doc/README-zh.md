@@ -29,7 +29,7 @@
 
 进入 Dashboard → 节点列表 → 新建节点。
 
-![image-20220224101745039](/Users/nlin/www/modern-cpp-server-boilerplate/doc/README-zh/image-20220224101745039.png)
+![image-20220224101745039](./README-zh/image-20220224101745039.png)
 
 3 ） 填写相关参数
 
@@ -46,7 +46,7 @@
 
 **进入代理机** 安装 JDK 8，登录 Jenkins 进入节点管理详情，详情中会展示两种启动连接方式，推荐使用 “在命令行中启动节点”。
 
-![image-20220224102331214](/Users/nlin/www/modern-cpp-server-boilerplate/doc/README-zh/image-20220224102331214.png)
+![image-20220224102331214](./README-zh/image-20220224102331214.png)
 
 首先点击 agent.jar 下载文件，放到合适的目录后。运行后面的命令启动即可。
 
