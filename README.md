@@ -53,7 +53,8 @@ Provide md5 calculation  via http.
 5. https://docs.conan.io/en/latest/getting_started.html
 6. https://conan.io/center 
 7. https://cmake.org/
-8. https://github.com/google/googletest
-9. https://github.com/google/styleguide
-10. https://cmake.org/cmake/help/latest/guide/tutorial/index.html
-11. https://blog.csdn.net/u013187057/article/details/85222007
+8.  Static check https://baptiste-wicht.com/posts/2017/03/clang-tidy-static-analysis-integration-in-sonarqube.html
+9. https://github.com/google/googletest
+10. https://github.com/google/styleguide
+11. https://cmake.org/cmake/help/latest/guide/tutorial/index.html
+12. https://blog.csdn.net/u013187057/article/details/85222007

@@ -58,5 +58,19 @@
 2. 放到代码库中
 3. 放到单独的代码库，使用 git submodule
 
+## 3. Sonar C++ 插件安装
 
+Sonar 上提供了一些商业插件比如 SonarCFamily 可以使用，也可以使用开源插件。
+
+我们可以使用 sonar-cxx，为社区版添加 C++支持，也可以使用 Sonar Cloud，但是 Sonar Cloud 需要单独配置。
+
+插件安装文档见：https://github.com/SonarOpenCommunity/sonar-cxx/wiki/Install-the-Plugin  特别注意兼容性清单。
+
+如果使用 Docker 启动，可以下载相关插件后使用下面的命令，将插件拷贝到 Sonar 的对应目录中。（操作前最好备份一下 sonar 的数据库）。
+
+>  docker cp [插件位置]   [容器 ID]:/opt/sonarqube/extensions/plugins
+
+安装完成后，可以在 Administration → Marketplace → Plugins 找到。
+
+![image-20220224115434701](/Users/nlin/www/modern-cpp-server-boilerplate/doc/README-zh/image-20220224115434701.png)
 
