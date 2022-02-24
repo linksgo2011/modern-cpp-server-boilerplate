@@ -24,9 +24,9 @@ Provide md5 calculation  via http.
 - Cmake
 - Gcc
 - conan
-- Google Test <<<<<<
+- Google Test
+- cppcheck & sonar  <<<<<<
 - gcov
-- CppLint
 - Docker file
 - Jenkins file
 - Sonar Qube

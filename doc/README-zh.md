@@ -103,3 +103,10 @@ Sonar 上提供了一些商业插件比如 SonarCFamily 可以使用，也可以
 1. Linux 可以使用配置不同的 docker 来进行构建
 2. Win 使用 Windows 节点即可
 
+Linux 构建节点工具清单
+
+- cmake
+- g++/clang 
+- Cppcheck
+- SonarQube Scanner
+- 其他依赖文件
