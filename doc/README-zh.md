@@ -55,7 +55,7 @@
 包管理有下面几种方法
 
 1. Conan
-2. 放到代码库中
+2. 放到代码库中 <<<<
 3. 放到单独的代码库，使用 git submodule
 
 ## 3. Sonar C++ 插件安装
@@ -76,25 +76,31 @@ Sonar 上提供了一些商业插件比如 SonarCFamily 可以使用，也可以
 
 ### 4. 静态扫描
 
-
-
 ##### 本地使用 sonar-scanner 上报报告：
 
 > Brew install sonar-scanner
 
+**clang-format**
 
+代码风格检查
 
-
+TODO 
 
 ##### cppcheck 
 
-最简单的检查器。
+ 可以检测潜在的问题。
 
 安装地址：https://cppcheck.sourceforge.io/
 
+使用方式：
 
+```
+# code check
+cppcheck --xml-version=2 . 2> report.xml
 
-
+# sonar report
+sonar-scanner -Dsonar.login=57e10da238ad6c9308ec444eacd03ba8c25ca735
+```
 
 ## 5. 构建运行节点方案
 
@@ -110,3 +116,4 @@ Linux 构建节点工具清单
 - Cppcheck
 - SonarQube Scanner
 - 其他依赖文件
+
