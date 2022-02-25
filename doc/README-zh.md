@@ -72,7 +72,7 @@ Sonar 上提供了一些商业插件比如 SonarCFamily 可以使用，也可以
 
 安装完成后，可以在 Administration → Marketplace → Plugins 找到。
 
-![image-20220224115434701](/Users/nlin/www/modern-cpp-server-boilerplate/doc/README-zh/image-20220224115434701.png)
+![image-20220224115434701](./README-zh/image-20220224115434701.png)
 
 ### 4. 静态扫描
 
@@ -116,4 +116,39 @@ Linux 构建节点工具清单
 - Cppcheck
 - SonarQube Scanner
 - 其他依赖文件
+
+
+
+##### Docker 镜像构建
+
+准备 Dockerfile 如下：
+
+```dockerfile
+FROM gcc:11
+
+ARG CMAKE_VERSION=3.20.5
+ARG LLVM_VERSION=13.0.0
+ARG SONAR_SCANNER_CLI_VERSION=4.6.2.2472
+
+RUN wget https://github.com/Kitware/CMake/releases/download/v${CMAKE_VERSION}/cmake-${CMAKE_VERSION}-Linux-x86_64.sh \
+      -q -O /tmp/cmake-install.sh \
+      && chmod u+x /tmp/cmake-install.sh \
+      && mkdir /usr/bin/cmake \
+      && /tmp/cmake-install.sh --skip-license --prefix=/usr/bin/cmake \
+      && rm /tmp/cmake-install.sh \
+      && ln -s /usr/bin/cmake/bin/ccmake /usr/local/bin/ccmake \
+      && ln -s /usr/bin/cmake/bin/cmake /usr/local/bin/cmake \
+      && ln -s /usr/bin/cmake/bin/cpack /usr/local/bin/cpack \
+      && ln -s /usr/bin/cmake/bin/ctest /usr/local/bin/ctest
+
+# TODO add more tools
+```
+
+使用命令：
+
+>  docker build -t  builder/gcc:latest   .
+
+
+
+##### 添加 Docker 构建节点
 
