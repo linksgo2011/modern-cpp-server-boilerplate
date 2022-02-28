@@ -1,4 +1,26 @@
-ARG ALPINE_TAG=3.13.7
+# The MIT License
+#
+#  Copyright (c) 2015-2020, CloudBees, Inc. and other Jenkins contributors
+#
+#  Permission is hereby granted, free of charge, to any person obtaining a copy
+#  of this software and associated documentation files (the "Software"), to deal
+#  in the Software without restriction, including without limitation the rights
+#  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+#  copies of the Software, and to permit persons to whom the Software is
+#  furnished to do so, subject to the following conditions:
+#
+#  The above copyright notice and this permission notice shall be included in
+#  all copies or substantial portions of the Software.
+#
+#  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+#  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+#  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+#  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+#  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+#  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+#  THE SOFTWARE.
+
+ARG ALPINE_TAG=3.15.0
 FROM alpine:$ALPINE_TAG
 
 ARG VERSION=4.12
@@ -6,7 +28,6 @@ ARG user=jenkins
 ARG group=jenkins
 ARG uid=1000
 ARG gid=1000
-ARG SONAR_SCANNER_CLI_VERSION=4.6.2.2472
 
 RUN addgroup -g ${gid} ${group}
 RUN adduser -h /home/${user} -u ${uid} -G ${group} -D ${user}
@@ -14,25 +35,12 @@ LABEL Description="This is a base image, which provides the Jenkins agent execut
 
 ARG AGENT_WORKDIR=/home/${user}/agent
 
-# grant access to user
-RUN chmod -R g+swrx /root/
-
-RUN apk add --update --no-cache build-base
-RUN apk add --update --no-cache cmake
-RUN apk add --update --no-cache cppcheck
-RUN apk add --update --no-cache zip unzip
-
-RUN wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-${SONAR_SCANNER_CLI_VERSION}-linux.zip -q -O /tmp/sonar-scanner.zip \
-    && unzip /tmp/sonar-scanner.zip -d /opt \
-    && ln -s "/opt/sonar-scanner-${SONAR_SCANNER_CLI_VERSION}-linux/bin/sonar-scanner" /usr/local/bin/sonar-scanner \
-    && rm /tmp/sonar-scanner.zip
-
 RUN apk add --update --no-cache curl bash git git-lfs musl-locales openjdk8-jre-base openssh-client openssl procps \
   && curl --create-dirs -fsSLo /usr/share/jenkins/agent.jar https://repo.jenkins-ci.org/public/org/jenkins-ci/main/remoting/${VERSION}/remoting-${VERSION}.jar \
   && chmod 755 /usr/share/jenkins \
   && chmod 644 /usr/share/jenkins/agent.jar \
-  && ln -sf /usr/share/jenkins/agent.jar /usr/share/jenkins/slave.jar
-
+  && ln -sf /usr/share/jenkins/agent.jar /usr/share/jenkins/slave.jar \
+  && apk del curl
 USER ${user}
 ENV AGENT_WORKDIR=${AGENT_WORKDIR}
 RUN mkdir /home/${user}/.jenkins && mkdir -p ${AGENT_WORKDIR}
@@ -40,3 +48,12 @@ RUN mkdir /home/${user}/.jenkins && mkdir -p ${AGENT_WORKDIR}
 VOLUME /home/${user}/.jenkins
 VOLUME ${AGENT_WORKDIR}
 WORKDIR /home/${user}
+
+LABEL \
+    org.opencontainers.image.vendor="Jenkins project" \
+    org.opencontainers.image.title="Official Jenkins Agent Base Docker image" \
+    org.opencontainers.image.description="This is a base image, which provides the Jenkins agent executable (agent.jar)" \
+    org.opencontainers.image.version="${VERSION}" \
+    org.opencontainers.image.url="https://www.jenkins.io/" \
+    org.opencontainers.image.source="https://github.com/jenkinsci/docker-agent" \
+    org.opencontainers.image.licenses="MIT"
