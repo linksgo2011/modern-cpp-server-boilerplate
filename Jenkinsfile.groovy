@@ -4,8 +4,6 @@ pipeline {
     stages {
         stage('Hello') {
             steps {
-                git 'https://github.com/linksgo2011/modern-cpp-server-boilerplate'
-
                 sh 'ci.sh check'
             }
         }
