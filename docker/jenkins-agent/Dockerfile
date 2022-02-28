@@ -20,7 +20,7 @@ RUN chmod -R g+swrx /root/
 RUN apk add --update --no-cache build-base
 RUN apk add --update --no-cache cmake
 RUN apk add --update --no-cache cppcheck
-RUN apk add --no-cache zip unzip
+RUN apk add --update --no-cache zip unzip
 
 RUN wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-${SONAR_SCANNER_CLI_VERSION}-linux.zip -q -O /tmp/sonar-scanner.zip \
     && unzip /tmp/sonar-scanner.zip -d /opt \

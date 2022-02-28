@@ -2,9 +2,11 @@ pipeline {
     agent {label 'docker-slave2'}
 
     stages {
-        stage('Static Check') {
+        stage('Hello') {
             steps {
-                sh "./ci.sh check"
+                git 'https://github.com/linksgo2011/modern-cpp-server-boilerplate'
+
+                sh 'ci.sh check'
             }
         }
     }

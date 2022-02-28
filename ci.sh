@@ -12,6 +12,12 @@ check() {
   sonar-scanner -Dsonar.login=57e10da238ad6c9308ec444eacd03ba8c25ca735
 }
 
+build(){
+    mkdir build && cd build
+    cmake ..
+    make
+}
+
 case $1 in
 check | test | build | deploy)
   $1
