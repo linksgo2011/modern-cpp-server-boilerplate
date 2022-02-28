@@ -4,6 +4,7 @@ pipeline {
     stages {
         stage('Hello') {
             steps {
+                sh 'ls'
                 sh 'ci.sh check'
             }
         }
