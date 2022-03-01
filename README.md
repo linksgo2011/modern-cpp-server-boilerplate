@@ -62,4 +62,13 @@ Provide md5 calculation  via http.
 ## troubles
 
 1. https://stackoverflow.com/questions/70117670/sonar-scanner-cli-4-2-does-not-find-jre-bin-java
-2. 
+
+
+** max virtual memory areas vm.max_map_count [65530] is too **
+
+> colima ssh
+> sysctl -w vm.max_map_count=262144
+> 
+
+** Sonar need openjdk11 **
+
