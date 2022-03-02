@@ -18,6 +18,10 @@ build(){
     make
 }
 
+unitTest(){
+   ctest
+}
+
 case $1 in
 check | test | build | deploy)
   $1

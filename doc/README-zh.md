@@ -62,7 +62,9 @@ C++ 有两种包，一种进静态库需要和源码一起编译，一种是编�
 
 如果使用 submodule 可以使用下面的命令：
 
-
+> ```console
+> git submodule add [仓库地址]
+> ```
 
 ## 3. Sonar C++ 插件安装
 
