@@ -30,11 +30,11 @@ unitTest(){
 }
 
 case $1 in
-check | test | build | deploy)
+check | unitTest | build | deploy)
   $1
   ;;
 *)
-  echo "not support!!! example: go <check | test | build | deploy>"
+  echo "not support!!! example: go <check | unitTest | build | deploy>"
   exit 1
   ;;
 esac
