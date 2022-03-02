@@ -29,7 +29,7 @@ Provide md5 calculation  via http.
 - Gcc
 - conan
 - Google Test
-- cppcheck & sonar  <<<<<<
+- cppcheck & sonar 
 - gcov
 - Docker file
 - Jenkins file
@@ -66,7 +66,9 @@ Provide md5 calculation  via http.
 
 ## troubles
 
-1. https://stackoverflow.com/questions/70117670/sonar-scanner-cli-4-2-does-not-find-jre-bin-java
+** sonar bin issue  **
+
+https://stackoverflow.com/questions/70117670/sonar-scanner-cli-4-2-does-not-find-jre-bin-java
 
 
 ** max virtual memory areas vm.max_map_count [65530] is too **
@@ -76,4 +78,14 @@ Provide md5 calculation  via http.
 > 
 
 ** Sonar need openjdk11 **
+
+Sonar scanner need jdk11, otherwise will get some jdk issue.
+
+** gcov need define output format **
+
+if you give --xml parameter to gcov, gcov will build standard cobertura report. 
+
+if yuo give --sonarqube parameter, gcov will build special report for sonar.
+
+but if you installed sonar cxx plugin and use --sonarqube parameter, sonar cxx plugin will still deal report with cobertura format.
 
