@@ -6,14 +6,18 @@ Modern C++ boilerplate project for server side.
 Install all dependencies and rebuild.
 
 > conan install .. --settings compiler="clang" --settings compiler.version=11 --build=missing
-
-> cmake --build build
+Generate make file with coverage flag
+> cmake .. -DCMAKE_BUILD_TYPE=Debug -DCMAKE_CXX_FLAGS="--coverage" -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
 or 
 > make 
 
 run test
 
 > ctest
+
+Generate test coverage
+
+>  gcovr --root .. . --exclude third_parts --sonarqube > ../coverage.xml
 
 ## demo description
 
@@ -55,9 +59,10 @@ Provide md5 calculation  via http.
 7. https://cmake.org/
 8. Static check https://baptiste-wicht.com/posts/2017/03/clang-tidy-static-analysis-integration-in-sonarqube.html
 9. https://github.com/google/googletest
-10. https://github.com/google/styleguide
-11. https://cmake.org/cmake/help/latest/guide/tutorial/index.html
-12. https://blog.csdn.net/u013187057/article/details/85222007
+10. https://github.com/jhbell/cmake-gcov
+11. https://github.com/google/styleguide
+12. https://cmake.org/cmake/help/latest/guide/tutorial/index.html
+13. https://blog.csdn.net/u013187057/article/details/85222007
 
 ## troubles
 

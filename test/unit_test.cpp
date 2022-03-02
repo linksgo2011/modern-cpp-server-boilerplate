@@ -13,5 +13,4 @@ TEST_F(UtilTests, simple){
     std::string res = rev.reverse(toRev);
 
     EXPECT_EQ(res, "olleH" );
-    EXPECT_EQ(1, 1 );
 }
