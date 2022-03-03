@@ -1,15 +1,15 @@
 version: '2'
 
 services:
-  jenkins:
-    image: jenkins/jenkins:lts
-    volumes:
-      - jenkins_data:/var/jenkins_home
-    networks:
-      - sonarnet
-    ports:
-      - '8080:8080'
-      - '50000:50000'
+#  jenkins:
+#    image: jenkins/jenkins:lts
+#    volumes:
+#      - jenkins_data:/var/jenkins_home
+#    networks:
+#      - sonarnet
+#    ports:
+#      - '8080:8080'
+#      - '50000:50000'
   sonarqube:
     image: sonarqube:community
     depends_on:

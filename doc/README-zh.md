@@ -201,5 +201,24 @@ ENV PATH $PATH:/root/sonar-scanner-$SONAR_SCANNER_CLI_VERSION-linux/bin
 
 启动参数可以配置Agent 标签、使用的镜像、拉取规则和进入容器的方式。
 
+##### 注意事项
+
+1. 必须使用 Centos 作为镜像基础，不能使用 Alpine 作为基础镜像，没有 glibc
+2. 相关依赖也需要在同样的平台上编译，并且使用相同的版本
+
+## 6. Gtest
+
+
+
+构建 gtest 包 
+
+https://codeload.github.com/google/googletest/zip/refs/tags/release-1.11.0
+
+##### gtest 版本问题
+
+1. gtest 1.8 后的版本不支持 c11 前的编译器，要求使用 G++ 5 以上编译
+
+
+
 
 
