@@ -1,6 +1,5 @@
  [requires]
- gtest/1.10.0
-
+ gtest/1.8.1
  poco/1.9.4
  cpp-httplib/0.10.1
 

@@ -206,6 +206,12 @@ ENV PATH $PATH:/root/sonar-scanner-$SONAR_SCANNER_CLI_VERSION-linux/bin
 1. 必须使用 Centos 作为镜像基础，不能使用 Alpine 作为基础镜像，没有 glibc
 2. 相关依赖也需要在同样的平台上编译，并且使用相同的版本
 
+##### 在本地调试的方法
+
+在本地可以通过映射磁盘文件的方式使用 Docker 中的虚拟环境构建宿主机的代码，以及调试。例如：
+
+> docker run -it -v /Users/nlin/www/cgsc/dma_domestic:/home/jenkins/myapp da8b6e855d3a  /bin/sh
+
 ## 6. Gtest
 
 
@@ -218,7 +224,54 @@ https://codeload.github.com/google/googletest/zip/refs/tags/release-1.11.0
 
 1. gtest 1.8 后的版本不支持 c11 前的编译器，要求使用 G++ 5 以上编译
 
+##### ctest 技巧
+
+1. 打印出相关错误日志 ctest -VV
+2. c++ 不能使用依赖注入，因此需要手动管理相关的 mock 对象
 
 
 
+## 7. C++ 制品管理
+
+使用 Nexus OSS 即可进行管理，直接使用 CURL 编写制品上传脚本即可实现制品管理，制品格式为 ZIP 包。
+
+##### 创建制品库
+
+包管理可以使用 Conan 但是制品在发布时并不需要 Conan 的构建脚本以及源代码，因此可以直接使用二进制文件即可。
+
+![image-20220307164443252](./README-zh/image-20220307164443252.png)
+
+创建完成后，可以获取制品库地址：http://10.4.6.232:8081/repository/cxx-artifact/
+
+##### 上传制品
+
+如果使用了特定的格式，比如 npm、mvn 可以用这些工具，如果是无格式的制品，可以使用 curl 上传。
+
+cxx 项目可以使用 curl 上传 zip 包管理制品。
+
+参考下面的代码：
+
+```
+   zip dma_rootnet_acess_0.0.1.zip  dma_rootnet_access/build/dma_rootnet_access.so
+   curl -v -u admin:**** --upload-file dma_rootnet_acess_0.0.1.zip  http://10.4.6.232:8081/repository/cxx-artifact/
+```
+
+
+
+## 技术选型清单
+
+
+
+|             |   推荐方案   |  工具    |  备选   |   备注   |      |
+| ----------- | ---- | ---- | ---- | ---- | ---- |
+| 代码管理 | 使用现存的 Gitlab 作为代码管理方案 | Gitlab | SVN |      |      |
+| 包管理 | 由于 C++ 的包管理现状使用 Git submodule 比较合适 | Git | conan/nexus |      |      |
+| 构建平台    | 使用现存构建平台，参考之前的默认实现和风格 | Jenkins |      |      |      |
+| 构建环境    | Windows: 复用存在的环境作为 |      |      |      |      |
+| 代码检查    |      |      |      |      |      |
+| 测试        |      |      |      |      |      |
+| 制品        |      |      |      |      |      |
+| 发布        |      |      |      |      |      |
+|             |      |      |      |      |      |
+|             |      |      |      |      |      |
 

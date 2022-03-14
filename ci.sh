@@ -15,13 +15,13 @@ check() {
 build(){
     mkdir build && cd build
     conan install .. --build missing
-    cmake .. -DCMAKE_BUILD_TYPE=Debug -DCMAKE_CXX_FLAGS="--coverage" -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
+    cmake .. -DCMAKE_CXX_COMPILER=/usr/bin/g++ -DCMAKE_C_COMPILER=/usr/bin/gcc -DCMAKE_BUILD_TYPE=Debug -DCMAKE_CXX_FLAGS="--coverage" -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
     make
 }
 
 unitTest(){
    ctest
-   gcovr --root .. . --exclude third_parts --sonarqube > ../coverage.xml
+   gcovr --root .. . --exclude third_parts --xml > ../coverage.xml
 
    # report coverage to sonar
   echo 'return to root path and run sonar-scanner report'

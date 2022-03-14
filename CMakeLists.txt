@@ -35,6 +35,7 @@ target_include_directories(${PROJECT_NAME}
 # lib for testing
 add_library(lib
         src/lib/Reverse.cpp
+        src/lib/Logger.cpp
         )
 target_include_directories(lib PUBLIC src/lib)
 #target_include_directories(lib PUBLIC src/lib/inner)
@@ -45,12 +46,11 @@ enable_testing()
 add_executable(unit_tests
         test/unit_test.cpp
         )
-find_package(GTest REQUIRED)
 
 target_link_libraries(unit_tests
         lib
-        GTest::GTest
-        GTest::Main
+        gmock_main
+        gtest_main
         )
 
 add_test(NAME ${PROJECT_NAME}_test COMMAND unit_tests)
